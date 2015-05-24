@@ -3,7 +3,7 @@
 # Haruyuki Ichino
 # Report 5th of mse. Show QRp and QNRp
 
-#conding: UTF-8
+#cording: UTF-8
 
 # define
 # ===========================================================
