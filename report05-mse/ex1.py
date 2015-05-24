@@ -48,8 +48,4 @@ if (legendre(y)==1):
     print ("(m/p) = ", int(legendre(c2)))
 else:
     print ("(m/p) = ", int(legendre(c2)/legendre(c1)))
-
-
-
-
 # ===========================================================
