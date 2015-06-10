@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/GoogleDrive/Lectures/MathematicalSystemEngineering/report07-mse/ex1.py.html</title>
+<meta name="Generator" content="Vim/7.4">
+<meta name="plugin-version" content="vim7.4_v1">
+<meta name="syntax" content="python">
+<meta name="settings" content="number_lines,use_css,pre_wrap,no_foldcolumn,expand_tabs,line_ids,prevent_copy=">
+<meta name="colorscheme" content="solarized">
+<style type="text/css">
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #657b83; background-color: #fdf6e3; }
+body { font-family: monospace; color: #657b83; background-color: #fdf6e3; }
+* { font-size: 1em; }
+.Conceal { color: #708090; }
+.Statement { color: #719e07; }
+.LineNr { color: #bebebe; background-color: #eee8d5; padding-bottom: 1px; }
+.Comment { color: #93a1a1; font-style: italic; }
+.Constant { color: #2aa198; }
+.PreProc { color: #cb4b16; }
+.Identifier { color: #268bd2; }
+-->
+</style>
+
+<script type='text/javascript'>
+<!--
+
+/* function to open any folds containing a jumped-to line before jumping to it */
+function JumpToLine()
+{
+  var lineNum;
+  lineNum = window.location.hash;
+  lineNum = lineNum.substr(1); /* strip off '#' */
+
+  if (lineNum.indexOf('L') == -1) {
+    lineNum = 'L'+lineNum;
+  }
+  lineElem = document.getElementById(lineNum);
+  /* Always jump to new location even if the line was hidden inside a fold, or
+   * we corrected the raw number to a line ID.
+   */
+  if (lineElem) {
+    lineElem.scrollIntoView(true);
+  }
+  return true;
+}
+if ('onhashchange' in window) {
+  window.onhashchange = JumpToLine;
+}
+
+-->
+</script>
+</head>
+<body onload='JumpToLine();'>
+<h1>別紙1</h1>
+<pre id='vimCodeElement'>
+<span id="L1" class="LineNr"> 1 </span><span class="Comment"># ex1.py on report07-mse</span>
+<span id="L2" class="LineNr"> 2 </span><span class="Comment"># Haruyuki Ichino</span>
+<span id="L3" class="LineNr"> 3 </span><span class="Comment"># 2015/06/05</span>
+<span id="L4" class="LineNr"> 4 </span><span class="Comment"># Calculate inverse element of p'</span>
+<span id="L5" class="LineNr"> 5 </span>
+<span id="L6" class="LineNr"> 6 </span><span class="Comment">#coding: UTF-8</span>
+<span id="L7" class="LineNr"> 7 </span><span class="PreProc">import</span> sys
+<span id="L8" class="LineNr"> 8 </span><span class="PreProc">import</span> random
+<span id="L9" class="LineNr"> 9 </span>
+<span id="L10" class="LineNr">10 </span><span class="Comment"># function</span>
+<span id="L11" class="LineNr">11 </span><span class="Comment">#===============================================================================</span>
+<span id="L12" class="LineNr">12 </span><span class="Statement">def</span> <span class="Identifier">calp</span>(p):
+<span id="L13" class="LineNr">13 </span>    <span class="Statement">return</span> (<span class="Constant">2</span>**<span class="Constant">0</span>)*p[<span class="Constant">0</span>] + (<span class="Constant">2</span>**<span class="Constant">1</span>)*p[<span class="Constant">1</span>] + (<span class="Constant">2</span>**<span class="Constant">2</span>)*p[<span class="Constant">2</span>] + (<span class="Constant">2</span>**<span class="Constant">3</span>)*p[<span class="Constant">3</span>] + (<span class="Constant">2</span>**<span class="Constant">4</span>)*p[<span class="Constant">4</span>] + (<span class="Constant">2</span>**<span class="Constant">5</span>)*p[<span class="Constant">5</span>] + (<span class="Constant">2</span>**<span class="Constant">6</span>)*p[<span class="Constant">6</span>] + (<span class="Constant">2</span>**<span class="Constant">7</span>)*p[<span class="Constant">7</span>] + (<span class="Constant">2</span>**<span class="Constant">8</span>)*p[<span class="Constant">8</span>] + (<span class="Constant">2</span>**<span class="Constant">9</span>)*p[<span class="Constant">9</span>] + (<span class="Constant">2</span>**<span class="Constant">10</span>)*p[<span class="Constant">10</span>] + (<span class="Constant">2</span>**<span class="Constant">11</span>)*p[<span class="Constant">11</span>] + (<span class="Constant">2</span>**<span class="Constant">12</span>)*p[<span class="Constant">12</span>] + (<span class="Constant">2</span>**<span class="Constant">13</span>)*p[<span class="Constant">13</span>] + (<span class="Constant">2</span>**<span class="Constant">14</span>)*p[<span class="Constant">14</span>] + (<span class="Constant">2</span>**<span class="Constant">15</span>)
+<span id="L14" class="LineNr">14 </span>
+<span id="L15" class="LineNr">15 </span><span class="Statement">def</span> <span class="Identifier">is_prime3</span>(q,k=<span class="Constant">50</span>):
+<span id="L16" class="LineNr">16 </span>    q = <span class="Identifier">abs</span>(q)
+<span id="L17" class="LineNr">17 </span>    <span class="Comment">#judge</span>
+<span id="L18" class="LineNr">18 </span>    <span class="Statement">if</span> q == <span class="Constant">2</span>: <span class="Statement">return</span> <span class="Identifier">True</span>
+<span id="L19" class="LineNr">19 </span>    <span class="Statement">if</span> q &lt; <span class="Constant">2</span> <span class="Statement">or</span> q&amp;<span class="Constant">1</span> == <span class="Constant">0</span>: <span class="Statement">return</span> <span class="Identifier">False</span>
+<span id="L20" class="LineNr">20 </span>
+<span id="L21" class="LineNr">21 </span>    <span class="Comment">#n-1=2^s*d, calc d</span>
+<span id="L22" class="LineNr">22 </span>    d = (q-<span class="Constant">1</span>)&gt;&gt;<span class="Constant">1</span>
+<span id="L23" class="LineNr">23 </span>    <span class="Statement">while</span> d&amp;<span class="Constant">1</span> == <span class="Constant">0</span>:
+<span id="L24" class="LineNr">24 </span>    <span class="Conceal">¦</span>   d &gt;&gt;= <span class="Constant">1</span>
+<span id="L25" class="LineNr">25 </span>
+<span id="L26" class="LineNr">26 </span>    <span class="Comment">#check k times</span>
+<span id="L27" class="LineNr">27 </span>    <span class="Statement">for</span> i <span class="Statement">in</span> <span class="Identifier">range</span>(k):
+<span id="L28" class="LineNr">28 </span>    <span class="Conceal">¦</span>   a = random.randint(<span class="Constant">1</span>,q-<span class="Constant">1</span>)
+<span id="L29" class="LineNr">29 </span>    <span class="Conceal">¦</span>   t = d
+<span id="L30" class="LineNr">30 </span>    <span class="Conceal">¦</span>   y = <span class="Identifier">pow</span>(a,t,q)
+<span id="L31" class="LineNr">31 </span>    <span class="Conceal">¦</span>   <span class="Comment">#[0,s-1]の範囲すべてをチェック</span>
+<span id="L32" class="LineNr">32 </span>    <span class="Conceal">¦</span>   <span class="Statement">while</span> t != q-<span class="Constant">1</span> <span class="Statement">and</span> y != <span class="Constant">1</span> <span class="Statement">and</span> y != q-<span class="Constant">1</span>:
+<span id="L33" class="LineNr">33 </span>    <span class="Conceal">¦</span>   <span class="Conceal">¦</span>   y = <span class="Identifier">pow</span>(y,<span class="Constant">2</span>,q)
+<span id="L34" class="LineNr">34 </span>    <span class="Conceal">¦</span>   <span class="Conceal">¦</span>   t &lt;&lt;= <span class="Constant">1</span>
+<span id="L35" class="LineNr">35 </span>    <span class="Conceal">¦</span>   <span class="Statement">if</span> y != q-<span class="Constant">1</span> <span class="Statement">and</span> t&amp;<span class="Constant">1</span> == <span class="Constant">0</span>:
+<span id="L36" class="LineNr">36 </span>    <span class="Conceal">¦</span>   <span class="Conceal">¦</span>   <span class="Statement">return</span> <span class="Identifier">False</span>
+<span id="L37" class="LineNr">37 </span>    <span class="Statement">return</span> <span class="Identifier">True</span>
+<span id="L38" class="LineNr">38 </span>
+<span id="L39" class="LineNr">39 </span><span class="Comment"># Expanded Euclidean</span>
+<span id="L40" class="LineNr">40 </span><span class="Statement">def</span> <span class="Identifier">EuclideanPlus</span>(a, b):
+<span id="L41" class="LineNr">41 </span>    (xp, xn) = (<span class="Constant">0</span>, <span class="Constant">1</span>)
+<span id="L42" class="LineNr">42 </span>    (yp, yn) = (<span class="Constant">1</span>, <span class="Constant">0</span>)
+<span id="L43" class="LineNr">43 </span>    <span class="Statement">while</span> b != <span class="Constant">0</span>:
+<span id="L44" class="LineNr">44 </span>    <span class="Conceal">¦</span>   q = a // b
+<span id="L45" class="LineNr">45 </span>    <span class="Conceal">¦</span>   (a, b) = (b, a%b)
+<span id="L46" class="LineNr">46 </span>    <span class="Conceal">¦</span>   (xp, xn) = (xn-q*xp, xp)
+<span id="L47" class="LineNr">47 </span>    <span class="Conceal">¦</span>   (yp, yn) = (yn-q*yp, yp)
+<span id="L48" class="LineNr">48 </span>
+<span id="L49" class="LineNr">49 </span>    <span class="Statement">return</span> (xn, yn, a)
+<span id="L50" class="LineNr">50 </span>
+<span id="L51" class="LineNr">51 </span><span class="Comment"># Calc maltiplicative inverse</span>
+<span id="L52" class="LineNr">52 </span><span class="Statement">def</span> <span class="Identifier">calcInv</span>(pd, p):
+<span id="L53" class="LineNr">53 </span>    (inv, q, gcd_val) = EuclideanPlus(pd, p)
+<span id="L54" class="LineNr">54 </span>    <span class="Statement">return</span> inv % p
+<span id="L55" class="LineNr">55 </span><span class="Comment">#===============================================================================</span>
+<span id="L56" class="LineNr">56 </span>
+<span id="L57" class="LineNr">57 </span>
+<span id="L58" class="LineNr">58 </span><span class="Identifier">str</span> = sys.argv[<span class="Constant">1</span>] <span class="Comment">#a15,a14,a13,...,a0</span>
+<span id="L59" class="LineNr">59 </span>
+<span id="L60" class="LineNr">60 </span>num = [] <span class="Comment"># init num</span>
+<span id="L61" class="LineNr">61 </span><span class="Comment">#set num</span>
+<span id="L62" class="LineNr">62 </span><span class="Statement">for</span> i <span class="Statement">in</span> <span class="Identifier">range</span>(<span class="Constant">16</span>):
+<span id="L63" class="LineNr">63 </span>    num.append(<span class="Identifier">int</span>(<span class="Identifier">str</span>[<span class="Constant">15</span>-i])) <span class="Comment">#num=[a0,a1,a2,...,a15]</span>
+<span id="L64" class="LineNr">64 </span>
+<span id="L65" class="LineNr">65 </span>pd = calp(num)
+<span id="L66" class="LineNr">66 </span>p = pd + <span class="Constant">1</span>
+<span id="L67" class="LineNr">67 </span><span class="Statement">while</span>(<span class="Statement">not</span> is_prime3(p)):
+<span id="L68" class="LineNr">68 </span>   p=p+<span class="Constant">1</span>
+<span id="L69" class="LineNr">69 </span>
+<span id="L70" class="LineNr">70 </span><span class="Identifier">print</span> (<span class="Constant">&quot;p' = &quot;</span>, pd)
+<span id="L71" class="LineNr">71 </span><span class="Identifier">print</span>(<span class="Constant">&quot;p = &quot;</span>, p)
+<span id="L72" class="LineNr">72 </span><span class="Identifier">print</span> (<span class="Constant">&quot;p'^-1 mod p = &quot;</span>, calcInv(pd, p))
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->
